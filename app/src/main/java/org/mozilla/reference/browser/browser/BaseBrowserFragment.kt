@@ -199,9 +199,11 @@ abstract class BaseBrowserFragment : Fragment(), BackHandler, UserInteractionHan
         if (enabled) {
             activity?.enterToImmersiveMode()
             toolbar.visibility = View.GONE
+            engineView.setDynamicToolbarMaxHeight(0)
         } else {
             activity?.exitImmersiveModeIfNeeded()
             toolbar.visibility = View.VISIBLE
+            engineView.setDynamicToolbarMaxHeight(toolbar.getLayoutParams().height)
         }
     }
 
